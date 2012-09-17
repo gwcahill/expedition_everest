@@ -1,5 +1,12 @@
-<% provide(:title, 'Home') %>
-<h1>Imagineering Everest</h1>
-<p>
+<div class="center hero-unit">
+  <h1>Welcome to Imagineering Everest</h1>
+
+  <h2>
     This is the home page for Imagineering Everest.
-</p>
+  </h2>
+
+  <%= link_to "Join", '#', class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("Expedition_Everest_logo.svg.png", alt: "Expedition Everest | Walt Disney World"),
+            'http://disneyworld.disney.go.com/parks/animal-kingdom/attractions/expedition-everest/' %>
