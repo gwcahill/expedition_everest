@@ -76,7 +76,7 @@ GEM
       rack (>= 0.4)
     rack-ssl (1.3.2)
       rack
-    rack-test (0.6.1)
+    rack-test (0.6.2)
       rack (>= 1.0)
     rails (3.2.8)
       actionmailer (= 3.2.8)
@@ -103,7 +103,7 @@ GEM
     rspec-core (2.11.1)
     rspec-expectations (2.11.3)
       diff-lcs (~> 1.1.3)
-    rspec-mocks (2.11.2)
+    rspec-mocks (2.11.3)
     rspec-rails (2.11.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -120,6 +120,7 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
+    simple-rss (1.2.3)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -149,5 +150,6 @@ DEPENDENCIES
   rails (= 3.2.8)
   rspec-rails (= 2.11.0)
   sass-rails (= 3.2.5)
+  simple-rss
   sqlite3 (= 1.3.5)
   uglifier (= 1.2.3)
