@@ -1,4 +1,6 @@
 ExpeditionEverest::Application.routes.draw do
+  get "expedition_everest_tweets/everesttweets"
+
   resources :users
 
   root to: 'static_pages#home'
@@ -7,4 +9,5 @@ ExpeditionEverest::Application.routes.draw do
   match '/news',    to: 'static_pages#news'
   match '/imagineering', to: 'static_pages#imagineering'
   match '/joinnow', to: 'users#new'
+  match '/everesttweets', to: 'ExpeditionEverestTweets#everesttweets'
 end
