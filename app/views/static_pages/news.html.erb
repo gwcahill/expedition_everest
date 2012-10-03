@@ -2,7 +2,36 @@
 <div class="hero-unit">
 <h1>News</h1>
 <p>
-    Please use the following to obtain the latest news on Disney.
-    <%= raw news_feed %>
+    <br/>Please use the following to obtain the latest news on Disney.
+    <% require 'rubygems' %>
+    <% require 'open-uri' %>
+    <% require 'simple-rss' %>
+
+    <br/><h3 style="text-align: center;">Disney Parks Blog</h3><br/>
+    <% disneyparksrss = SimpleRSS.parse(open('http://feeds.feedburner.com/disneyparks').read) %>
+    <% disneyparkscount = 1 %>
+    <% disneyparksrss.items.each do |i|   %>
+      <%= link_to("#{disneyparkscount}.#{i.title}", "#{i.link}", html_options = { :target => "_blank" }) %>
+      <% disneyparkscount = disneyparkscount + 1 %>
+      <br/>
+    <% end %>
+
+  <br/><h3 style="text-align: center;">Touring Plans Blog</h3><br/>
+  <% touringplansrss = SimpleRSS.parse(open('http://feeds2.feedburner.com/TouringPlansBlog/').read) %>
+  <% touringplanscount = 1 %>
+  <% touringplansrss.items.each do |j|   %>
+      <%= link_to("#{touringplanscount}.#{j.title}", "#{j.link}", html_options = { :target => "_blank" }) %>
+      <% touringplanscount = touringplanscount + 1 %>
+      <br/>
+  <% end %>
+
+  <br/><h3 style="text-align: center;">All Ears Blog</h3><br/>
+  <% allearsrss = SimpleRSS.parse(open('http://allears.net/feed.xml').read) %>
+  <% allearscount = 1 %>
+  <% allearsrss.items.each do |m|   %>
+      <%= link_to("#{allearscount}.#{m.title}", "#{m.link}", html_options = { :target => "_blank" }) %>
+      <% allearscount = allearscount + 1 %>
+      <br/>
+  <% end %>
 </p>
 </div>
