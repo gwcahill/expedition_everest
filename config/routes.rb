@@ -2,7 +2,8 @@ ExpeditionEverest::Application.routes.draw do
   get "expedition_everest_tweets/everesttweets"
 
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions,   only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

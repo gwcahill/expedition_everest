@@ -1,20 +1,36 @@
-<div class="center hero-unit">
-  <h1>Welcome to Imagineering Everest</h1>
-  <br/><br/>
-  <p style="text-align: left;">Walt Disney World's Animal Kingdom is the newest theme park to be unveiled at the Walt Disney World
-  Resort. Built in 1998, Disney's Animal Kingdom (DAK) transports guests to exotic lands and places
-  around the world (and through time).</p><br/>
+<% if signed_in? %>
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <%= render 'shared/user_info' %>
+        </section>
+        <section>
+          <%= render 'shared/micropost_form' %>
+        </section>
+      </aside>
+      <div class="span8">
+        <h3>Micropost Feed</h3>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
+<% else %>
+    <div class="center hero-unit">
+      <h1>Welcome to Imagineering Everest</h1>
+      <br/><br/>
+      <p style="text-align: left;">Walt Disney World's Animal Kingdom is the newest theme park to be unveiled at the Walt Disney World
+      Resort. Built in 1998, Disney's Animal Kingdom (DAK) transports guests to exotic lands and places
+      around the world (and through time).</p><br/>
 
-  <p style="text-align: left;">This site is dedicated to one of the greatest thrill rides ever developed by Walt Disney Imagineering,
-  Expedition Everest. Please use the navigation bar above to find out more information about Expedition Everest
-  or Disney news in general.</p><br/>
+      <p style="text-align: left;">This site is dedicated to one of the greatest thrill rides ever developed by Walt Disney Imagineering,
+      Expedition Everest. Please use the navigation bar above to find out more information about Expedition Everest
+      or Disney news in general.</p><br/>
 
-  <p style="text-align: left;">If you'd like to join in on the conversation, click the "Join" button below and get started.</p><br/>
+      <p style="text-align: left;">If you'd like to join in on the conversation, click the "Join" button below and get started.</p><br/>
 
-  <p style="text-align: left;">Thanks for visiting!</p><br/>
+      <p style="text-align: left;">Thanks for visiting!</p><br/>
 
-  <%= link_to "Join", joinnow_path, class: "btn btn-large btn-primary" %>
-</div>
-
+      <%= link_to "Join", joinnow_path, class: "btn btn-large btn-primary" %>
+    </div>
+<% end %>
 <%= link_to image_tag("Expedition_Everest_logo.svg.png", alt: "Expedition Everest | Walt Disney World"),
             'http://disneyworld.disney.go.com/parks/animal-kingdom/attractions/expedition-everest/' %>
