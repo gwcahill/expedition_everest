@@ -2,5 +2,9 @@
 <div class="hero-unit">
   <h1>Expedition Everest Tweets</h1>
   <p>Provided below are recent tweets relating to Disney's Expedition Everest attraction...</p><br/><br/>
-    <%= tweetfeed %>
+    <% tweetfeed %>
+    <% @tweets.each do |indiv_tweet|   %>
+      <p><%= indiv_tweet %></p>
+      <p>--------------------------------------------------------------------------------------------</p>
+    <% end %>
 </div>
