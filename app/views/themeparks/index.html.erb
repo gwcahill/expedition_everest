@@ -1,0 +1,12 @@
+<% provide(:title, 'All Theme Parks') %>
+<div class="hero-unit">
+  <h1>All Theme Parks</h1>
+
+  <%= will_paginate %>
+
+  <ul class="themeparks">
+    <%= render @themeparks %>
+  </ul>
+
+  <%= will_paginate %>
+</div>

@@ -1,9 +1,14 @@
 ExpeditionEverest::Application.routes.draw do
+  get "themeparks/new"
+
+  get "themepark/new"
+
   get "expedition_everest_tweets/everesttweets"
 
   resources :users
   resources :sessions,   only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :themeparks
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
