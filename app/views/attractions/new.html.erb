@@ -1,0 +1,32 @@
+<% provide(:title, 'Add Attraction to Compare') %>
+<div class="hero-unit">
+<h1>Add Attraction to Compare</h1>
+
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@attraction) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :totallength %>
+        <%= f.number_field :totallength %>
+
+        <%= f.label :totaltime %>
+        <%= f.number_field :totaltime %>
+
+        <%= f.label :yearbuilt %>
+        <%= f.number_field :yearbuilt %>
+
+        <%= f.label :themepark %>
+        <%= f.select :themepark_id, Themepark.get_nums %>
+
+        <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+        <%= button_tag 'Reset', :type => 'reset', class: "btn btn-large btn-primary" %>
+        <%= link_to "Cancel", '/compare', class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>

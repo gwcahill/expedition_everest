@@ -1,0 +1,11 @@
+<% provide(:title, 'Compare Attractions') %>
+<div class="hero-unit">
+  <h1>Compare Attractions</h1>
+  <br/>
+  <% count = 0 %>
+  <% @attractions.each do |attraction| %>
+      <%= count %>.&nbsp;<%= link_to attraction.name, attraction %><br/>
+      <% count = count + 1 %>
+  <% end %>
+  <%= link_to "Add Attraction", 'compare/new', class: "btn btn-large btn-primary" %>
+</div>

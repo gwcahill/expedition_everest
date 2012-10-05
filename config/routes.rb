@@ -1,5 +1,9 @@
 ExpeditionEverest::Application.routes.draw do
+  get "attractions/new"
+  get "attractions/show"
+
   get "themeparks/new"
+  get "themeparks/show"
 
   get "themepark/new"
 
@@ -9,6 +13,11 @@ ExpeditionEverest::Application.routes.draw do
   resources :sessions,   only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :themeparks
+  resources :attractions
+
+  match '/compare', to: 'attractions#index'
+  match '/compare/new', to: 'attractions#new'
+  match '/compare/delete', to: 'attractions#destroy', via: :delete
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

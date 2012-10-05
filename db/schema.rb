@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004034324) do
+ActiveRecord::Schema.define(:version => 20121005055536) do
+
+  create_table "attractions", :force => true do |t|
+    t.string   "name"
+    t.integer  "totaltime"
+    t.integer  "totallength"
+    t.integer  "yearbuilt"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "themepark_id"
+  end
+
+  add_index "attractions", ["name"], :name => "index_attractions_on_name", :unique => true
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
