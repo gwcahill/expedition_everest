@@ -1,6 +1,6 @@
 class AttractionsController < ApplicationController
   def show
-    @attraction = Attraction.find(params[:id])
+    @attraction  = Attraction.find(params[:id])
     respond_to do |format|
       format.html
       format.xml { render :xml => @attraction }
@@ -10,10 +10,17 @@ class AttractionsController < ApplicationController
 
   def index
     @attractions = Attraction.paginate(page: params[:page])
+    @themeparks  = Themepark.all
   end
 
   def new
     @attraction = Attraction.new
+  end
+
+  def destroy
+    Attraction.find(params[:id]).destroy
+    flash[:success] = "Attraction destroyed."
+    redirect_to '/compare'
   end
 
   def create
@@ -29,7 +36,7 @@ class AttractionsController < ApplicationController
       end
     end
     if @attraction.save
-      redirect_to @attraction
+      redirect_to '/compare'
     else
       render 'new'
     end

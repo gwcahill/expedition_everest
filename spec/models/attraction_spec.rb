@@ -17,7 +17,7 @@ require 'spec_helper'
 describe Attraction do
 
   before { @attraction = Attraction.new(name: "Example Attraction", totaltime: 45, totallength: 4000,
-                                        yearbuilt: 1995 ) }
+                                        yearbuilt: 1995, themepark_id: 1 ) }
 
   subject { @attraction }
 
@@ -25,6 +25,7 @@ describe Attraction do
   it { should respond_to(:totaltime) }
   it { should respond_to(:totallength) }
   it { should respond_to(:yearbuilt) }
+  it { should respond_to(:themepark_id) }
   it { should be_valid }
 
   describe "when name is not present" do

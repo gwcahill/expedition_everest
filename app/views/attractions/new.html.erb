@@ -14,13 +14,13 @@
         <%= f.label :totallength %>
         <%= f.number_field :totallength %>
 
-        <%= f.label :totaltime %>
+        <%= f.label :totaltime %> (in seconds)
         <%= f.number_field :totaltime %>
 
         <%= f.label :yearbuilt %>
         <%= f.number_field :yearbuilt %>
 
-        <%= f.label :themepark %>
+        <%= f.label :themepark_id %>
         <%= f.select :themepark_id, Themepark.get_nums %>
 
         <%= f.submit "Create", class: "btn btn-large btn-primary" %>

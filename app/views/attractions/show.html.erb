@@ -1,5 +1,10 @@
 <% provide(:title, @attraction.name) %>
-<div class="hero-unit">
+<div class="hero-unit" xmlns="http://www.w3.org/1999/html">
   <h1>Attraction</h1>
-  <%= @attraction.id %>:<%= @attraction.name %>
+  <p><%= @attraction.name %></p>
+  <p>Built in: <%= @attraction.yearbuilt %></p>
+  <p>Track Length: <%= @attraction.totallength %>ft</p>
+  <p>Ride Time: <%= @attraction.totaltime %> seconds</p>
+  <br/><br/>
+  <%= link_to "Return", '/compare', class: "btn btn-large btn-primary" %>
 </div>

@@ -2,10 +2,27 @@
 <div class="hero-unit">
   <h1>Compare Attractions</h1>
   <br/>
-  <% count = 0 %>
-  <% @attractions.each do |attraction| %>
-      <%= count %>.&nbsp;<%= link_to attraction.name, attraction %><br/>
-      <% count = count + 1 %>
-  <% end %>
+  <% count = 1 %>
+  <table style="border: 0;">
+    <tr><td><b>Attraction</b></td><td><b>Comparison</b></td><td></td></tr>
+      <% @attractions.each do |attraction| %>
+        <tr>
+          <td style="vertical-align: top; align: left; padding-right: 10px;"><%= count %>.&nbsp;<%= link_to attraction.name, attraction %></td>
+          <td>
+            <%= yearcompare(attraction.yearbuilt) %><br/>
+            <%= trackcompare(attraction.totallength) %><br/>
+            <%= timecompare(attraction.totaltime) %><br/>
+            Resides in&nbsp;<%= themeparkname(attraction.themepark_id) %>&nbsp;in&nbsp;<%= themeparklocation(attraction.themepark_id) %>
+          </td>
+          <td style="padding-left: 20px; vertical-align: top;">
+            <%= link_to "delete", attraction, method: :delete,
+                        data: { confirm: "Are you sure?" },
+                        class: "btn btn-large btn-primary" %>
+          </td>
+          <% count = count + 1 %>
+        </tr>
+      <% end %>
+  </table>
+  <br/><br/><br/>
   <%= link_to "Add Attraction", 'compare/new', class: "btn btn-large btn-primary" %>
 </div>
