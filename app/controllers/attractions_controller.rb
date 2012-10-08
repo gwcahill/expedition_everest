@@ -23,6 +23,10 @@ class AttractionsController < ApplicationController
     redirect_to '/compare'
   end
 
+  def set
+    render :text  => params[:updatewith]
+  end
+
   def create
     @attraction = Attraction.new(params[:attraction])
 

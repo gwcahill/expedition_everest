@@ -55,4 +55,11 @@ describe "Static pages" do
     it { should have_selector('h1',    text: 'Imagineering') }
     it { should have_selector('title', text: full_title('Imagineering')) }
   end
+
+  describe "Compare" do
+    before { visit compare_path }
+
+    it { should have_selector('h1',    text: 'Compare Attractions') }
+    it { should have_selector('title', text: full_title('Compare Attractions')) }
+  end
 end
