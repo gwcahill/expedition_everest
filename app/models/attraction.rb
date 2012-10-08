@@ -15,7 +15,7 @@
 class Attraction < ActiveRecord::Base
   attr_accessible :name, :totallength, :totaltime, :yearbuilt, :themepark_id
 
-  belongs_to :themepark
+  belongs_to :themepark, foreign_key: "themepark_id", dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :themepark_id, presence: true

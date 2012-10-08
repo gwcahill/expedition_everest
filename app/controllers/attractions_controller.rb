@@ -26,15 +26,15 @@ class AttractionsController < ApplicationController
   def create
     @attraction = Attraction.new(params[:attraction])
 
-    @names = Themepark.get_names
-    @count = 1
-    @names.each do |i|
-      if(i == @attraction.themepark_id.to_s)
-        @attraction.themepark_id = @count
-      else
-        @count = @count + 1
-      end
-    end
+    #@names = Themepark.get_names
+    #@count = 1
+    #@names.each do |i|
+    #  if(i == @attraction.themepark_id.to_s)
+    #    @attraction.themepark_id = @count
+    #  else
+    #    @count = @count + 1
+    #  end
+    #end
     if @attraction.save
       redirect_to '/compare'
     else

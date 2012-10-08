@@ -12,7 +12,7 @@
 class Themepark < ActiveRecord::Base
   attr_accessible :location, :name
 
-  has_many :attractions
+  has_many :attractions, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :location, presence: true
@@ -23,7 +23,15 @@ class Themepark < ActiveRecord::Base
     @name_hash.count.times.each do |item|
       @names << @name_hash[item]["name"]
     end
-    @names
+
+    counter = 1
+    name_output = ""
+    @names.each do |parkname|
+      name_output = name_output + counter.to_s + ":" + parkname.to_s + "; "
+      counter = counter + 1
+    end
+
+    name_output
   end
 
   def self.get_nums

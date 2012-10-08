@@ -4,6 +4,20 @@ describe "AttractionPages" do
 
   subject { page }
 
+  #describe "attraction helper test" do
+  #  it "should test equal lengths" do
+  #    attractions_helper.trackcompare(4424).should == 0
+  #  end
+  #
+  #  it "should test lesser lengths" do
+  #    attractions_helper.trackcompare(4400).should == 24
+  #  end
+  #
+  #  it "should test greater lengths" do
+  #    attractions_helper.trackcompare(4524).should == 100
+  #  end
+  #end
+
   describe "compare" do
     before { visit compare_path }
 
